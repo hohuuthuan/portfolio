@@ -552,26 +552,23 @@
               </svg>
             </div>
 
-            <div class="flex w-full min-w-0 flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
-              <div class="text-left min-w-0 pr-10 sm:pr-0">
-                <p class="text-slate-500 text-sm">Email</p>
-                <p class="text-base sm:text-lg font-medium whitespace-nowrap" id="contact-email">
-                  hohuuthuan789@gmail.com
-                </p>
-              </div>
-
-              <button type="button" class="copy-btn absolute top-3 right-3 sm:static sm:top-auto sm:right-auto shrink-0"
-                data-copy-target="contact-email" data-en-label="Copy email" data-vi-label="Sao chép email"
-                aria-label="Copy email">
-                <svg class="w-8 h-8 text-slate-400 hover:text-emerald-400 transition-colors" fill="none"
-                  stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 16h8a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M16 8h2a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-2" />
-                </svg>
-              </button>
+            <div class="w-full min-w-0 text-left">
+              <p class="text-slate-500 text-sm">Email</p>
+              <p class="text-base sm:text-lg font-medium truncate" id="contact-email" title="hohuuthuan789@gmail.com">
+                hohuuthuan789@gmail.com
+              </p>
             </div>
+
+            <button type="button" class="copy-btn absolute top-3 right-3" data-copy-target="contact-email"
+              data-en-label="Copy email" data-vi-label="Sao chép email" aria-label="Copy email">
+              <svg class="w-8 h-8 text-slate-400 hover:text-emerald-400 transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 16h8a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 8h2a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-2" />
+              </svg>
+            </button>
           </div>
 
           <!-- Phone -->
@@ -583,29 +580,27 @@
               </svg>
             </div>
 
-            <div class="flex w-full min-w-0 flex-col sm:flex-row sm:items-center sm:justify-between gap-2 sm:gap-3">
-              <div class="text-left min-w-0 pr-10 sm:pr-0">
-                <p class="text-slate-500 text-sm">Phone</p>
-                <p class="text-base sm:text-lg font-medium break-all" id="contact-phone">
-                  +84 345 492 751
-                </p>
-              </div>
-
-              <button type="button" class="copy-btn absolute top-3 right-3 sm:static sm:top-auto sm:right-auto shrink-0"
-                data-copy-target="contact-phone" data-en-label="Copy phone" data-vi-label="Sao chép số điện thoại"
-                aria-label="Copy phone">
-                <svg class="w-8 h-8 text-slate-400 hover:text-cyan-400 transition-colors" fill="none"
-                  stroke="currentColor" viewBox="0 0 24 24">
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M8 16h8a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v8a2 2 0 002 2z" />
-                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                    d="M16 8h2a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-2" />
-                </svg>
-              </button>
+            <div class="w-full min-w-0 text-left">
+              <p class="text-slate-500 text-sm">Phone</p>
+              <p class="text-base sm:text-lg font-medium truncate" id="contact-phone" title="+84 345 492 751">
+                +84 345 492 751
+              </p>
             </div>
+
+            <button type="button" class="copy-btn absolute top-3 right-3" data-copy-target="contact-phone"
+              data-en-label="Copy phone" data-vi-label="Sao chép số điện thoại" aria-label="Copy phone">
+              <svg class="w-8 h-8 text-slate-400 hover:text-cyan-400 transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 16h8a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 8h2a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-2" />
+              </svg>
+            </button>
           </div>
 
-          <div class="contact-item flex items-center gap-4" data-reveal>
+          <!-- Location -->
+          <div class="contact-item flex items-start gap-4 relative" data-reveal>
             <div class="contact-icon bg-violet-500/20">
               <svg class="w-6 h-6 text-violet-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -615,15 +610,26 @@
               </svg>
             </div>
 
-            <div class="text-left">
+            <div class="w-full min-w-0 text-left">
               <p class="text-slate-500 text-sm" data-en="Location" data-vi="Địa điểm">
                 Location
               </p>
-              <p class="text-lg font-medium" id="contact-location" data-en="Dong Thap, Vietnam"
-                data-vi="Đồng Tháp, Việt Nam">
+              <p class="text-base sm:text-lg font-medium truncate" id="contact-location" title="Dong Thap, Vietnam"
+                data-en="Dong Thap, Vietnam" data-vi="Đồng Tháp, Việt Nam">
                 Dong Thap, Vietnam
               </p>
             </div>
+
+            <button type="button" class="copy-btn absolute top-3 right-3" data-copy-target="contact-location"
+              data-en-label="Copy location" data-vi-label="Sao chép địa điểm" aria-label="Copy location">
+              <svg class="w-8 h-8 text-slate-400 hover:text-violet-400 transition-colors" fill="none"
+                stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M8 16h8a2 2 0 002-2V6a2 2 0 00-2-2H8a2 2 0 00-2 2v8a2 2 0 002 2z" />
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                  d="M16 8h2a2 2 0 012 2v8a2 2 0 01-2 2h-8a2 2 0 01-2-2v-2" />
+              </svg>
+            </button>
           </div>
         </div>
       </div>
