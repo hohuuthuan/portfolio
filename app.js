@@ -216,6 +216,30 @@
     });
   }
 
+  function syncNavbarHeight()
+  {
+    const nav = document.getElementById("site-nav");
+    if (!nav)
+    {
+      return;
+    }
+
+    const setNavHeight = function ()
+    {
+      const height = Math.ceil(nav.getBoundingClientRect().height);
+      document.documentElement.style.setProperty("--nav-h", `${height}px`);
+    };
+
+    setNavHeight();
+
+    window.addEventListener("resize", setNavHeight);
+
+    if (window.visualViewport)
+    {
+      window.visualViewport.addEventListener("resize", setNavHeight);
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function ()
   {
     const initial = getInitialLang();
@@ -225,5 +249,6 @@
     bindSmoothScroll();
     initScrollReveal();
     bindCopyButtons();
+    syncNavbarHeight();
   });
 })();

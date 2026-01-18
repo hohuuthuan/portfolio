@@ -4,6 +4,7 @@
   --text: #f1f5f9;
   --primary: #10b981;
   --secondary: #06b6d4;
+  --nav-h: 84px;
 }
 
 html {
@@ -222,4 +223,18 @@ body {
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
+}
+
+#site-nav {
+  height: var(--nav-h);
+}
+
+.hero-offset {
+  padding-top: var(--nav-h);
+}
+
+@media (min-width: 768px) {
+  :root {
+    --nav-h: 88px;
+  }
 }
