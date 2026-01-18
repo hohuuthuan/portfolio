@@ -194,7 +194,7 @@
 
     const setNavHeight = function () {
       const height = Math.ceil(nav.getBoundingClientRect().height);
-      const extraOffset = 100;
+      const extraOffset = 50;
 
       document.documentElement.style.setProperty(
         "--nav-h",
