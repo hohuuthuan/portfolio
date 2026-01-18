@@ -225,10 +225,6 @@ body {
   flex-shrink: 0;
 }
 
-#site-nav {
-  height: var(--nav-h);
-}
-
 .hero-offset {
   padding-top: var(--nav-h);
 }

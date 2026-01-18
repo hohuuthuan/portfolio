@@ -3,34 +3,28 @@
   const LANG_EN = "en";
   const LANG_VI = "vi";
 
-  function getInitialLang()
-  {
+  function getInitialLang() {
     const saved = localStorage.getItem(LANG_KEY);
-    if (saved === LANG_EN || saved === LANG_VI)
-    {
+    if (saved === LANG_EN || saved === LANG_VI) {
       return saved;
     }
     return LANG_EN;
   }
 
-  function setToggleText(lang)
-  {
+  function setToggleText(lang) {
     const label = lang.toUpperCase();
     const desktop = document.getElementById("lang-toggle");
     const mobile = document.getElementById("lang-toggle-mobile");
 
-    if (desktop)
-    {
+    if (desktop) {
       desktop.textContent = label;
     }
-    if (mobile)
-    {
+    if (mobile) {
       mobile.textContent = label;
     }
   }
 
-  function applyLanguage(lang)
-  {
+  function applyLanguage(lang) {
     document.documentElement.setAttribute("lang", lang);
 
     const htmlNodes = document.querySelectorAll("[data-en-html]");
@@ -38,13 +32,11 @@
       const enHtml = el.getAttribute("data-en-html");
       const viHtml = el.getAttribute("data-vi-html");
 
-      if (lang === LANG_VI && viHtml)
-      {
+      if (lang === LANG_VI && viHtml) {
         el.innerHTML = viHtml;
         return;
       }
-      if (enHtml)
-      {
+      if (enHtml) {
         el.innerHTML = enHtml;
       }
     });
@@ -54,13 +46,11 @@
       const enText = el.getAttribute("data-en");
       const viText = el.getAttribute("data-vi");
 
-      if (lang === LANG_VI && viText)
-      {
+      if (lang === LANG_VI && viText) {
         el.textContent = viText;
         return;
       }
-      if (enText)
-      {
+      if (enText) {
         el.textContent = enText;
       }
     });
@@ -70,13 +60,11 @@
       const enLabel = button.getAttribute("data-en-label");
       const viLabel = button.getAttribute("data-vi-label");
 
-      if (lang === LANG_VI && viLabel)
-      {
+      if (lang === LANG_VI && viLabel) {
         button.setAttribute("aria-label", viLabel);
         return;
       }
-      if (enLabel)
-      {
+      if (enLabel) {
         button.setAttribute("aria-label", enLabel);
       }
     });
@@ -85,43 +73,35 @@
     localStorage.setItem(LANG_KEY, lang);
   }
 
-  function bindLanguageButtons()
-  {
+  function bindLanguageButtons() {
     const desktop = document.getElementById("lang-toggle");
     const mobile = document.getElementById("lang-toggle-mobile");
 
-    const handler = function ()
-    {
+    const handler = function () {
       const current = localStorage.getItem(LANG_KEY) || LANG_EN;
       const next = current === LANG_VI ? LANG_EN : LANG_VI;
       applyLanguage(next);
     };
 
-    if (desktop)
-    {
+    if (desktop) {
       desktop.addEventListener("click", handler);
     }
-    if (mobile)
-    {
+    if (mobile) {
       mobile.addEventListener("click", handler);
     }
   }
 
-  function bindSmoothScroll()
-  {
+  function bindSmoothScroll() {
     const anchors = document.querySelectorAll('a[href^="#"]');
     anchors.forEach((a) => {
-      a.addEventListener("click", function (e)
-      {
+      a.addEventListener("click", function (e) {
         const href = a.getAttribute("href");
-        if (!href || href === "#")
-        {
+        if (!href || href === "#") {
           return;
         }
 
         const target = document.querySelector(href);
-        if (!target)
-        {
+        if (!target) {
           return;
         }
 
@@ -134,16 +114,14 @@
     });
   }
 
-  function initScrollReveal()
-  {
+  function initScrollReveal() {
     const items = Array.from(document.querySelectorAll("[data-reveal]"));
     items.forEach((el, i) => {
       el.classList.add("reveal");
       el.style.setProperty("--reveal-delay", `${Math.min(i, 8) * 60}ms`);
     });
 
-    if (!("IntersectionObserver" in window))
-    {
+    if (!("IntersectionObserver" in window)) {
       items.forEach((el) => {
         el.classList.add("is-visible");
       });
@@ -153,8 +131,7 @@
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (!entry.isIntersecting)
-          {
+          if (!entry.isIntersecting) {
             return;
           }
 
@@ -174,23 +151,19 @@
     });
   }
 
-  function bindCopyButtons()
-  {
+  function bindCopyButtons() {
     const buttons = document.querySelectorAll(".copy-btn");
 
     buttons.forEach((button) => {
-      button.addEventListener("click", async () =>
-      {
+      button.addEventListener("click", async () => {
         const targetId = button.getAttribute("data-copy-target");
         const target = targetId ? document.getElementById(targetId) : null;
 
-        if (!target)
-        {
+        if (!target) {
           return;
         }
 
-        try
-        {
+        try {
           await navigator.clipboard.writeText(target.textContent.trim());
 
           const lang = localStorage.getItem(LANG_KEY) || LANG_EN;
@@ -201,47 +174,57 @@
           button.innerHTML = `<span class="text-sm font-medium">${copiedText}</span>`;
           button.disabled = true;
 
-          setTimeout(() =>
-          {
+          setTimeout(() => {
             button.innerHTML = originalContent;
             button.disabled = false;
             button.setAttribute("aria-label", originalAriaLabel);
           }, 2000);
         }
-        catch
-        {
+        catch {
           // silently fail
         }
       });
     });
   }
 
-  function syncNavbarHeight()
-  {
+  function syncNavbarHeight() {
     const nav = document.getElementById("site-nav");
-    if (!nav)
-    {
+    if (!nav) {
       return;
     }
 
-    const setNavHeight = function ()
-    {
+    const setNavHeight = function () {
       const height = Math.ceil(nav.getBoundingClientRect().height);
       document.documentElement.style.setProperty("--nav-h", `${height}px`);
     };
 
-    setNavHeight();
+    const setNavHeightRaf = function () {
+      requestAnimationFrame(() => {
+        setNavHeight();
+      });
+    };
 
-    window.addEventListener("resize", setNavHeight);
+    setNavHeightRaf();
 
-    if (window.visualViewport)
-    {
-      window.visualViewport.addEventListener("resize", setNavHeight);
+    window.addEventListener("resize", setNavHeightRaf);
+
+    if (window.visualViewport) {
+      window.visualViewport.addEventListener("resize", setNavHeightRaf);
+      window.visualViewport.addEventListener("scroll", setNavHeightRaf);
     }
+
+    if (document.fonts && document.fonts.ready) {
+      document.fonts.ready.then(() => {
+        setNavHeightRaf();
+      });
+    }
+
+    setTimeout(() => {
+      setNavHeightRaf();
+    }, 250);
   }
 
-  document.addEventListener("DOMContentLoaded", function ()
-  {
+  document.addEventListener("DOMContentLoaded", function () {
     const initial = getInitialLang();
     applyLanguage(initial);
 
