@@ -5,6 +5,7 @@
   --primary: #10b981;
   --secondary: #06b6d4;
   --nav-h: 84px;
+  --hero-gap: 16px;
 }
 
 html {
@@ -226,11 +227,22 @@ body {
 }
 
 .hero-offset {
-  padding-top: var(--nav-h);
+  padding-top: calc(var(--nav-h) + var(--hero-gap));
+}
+
+.hero-safe-top {
+  padding-top: calc(var(--nav-h) + var(--hero-gap));
+}
+
+@media (max-width: 640px) {
+  :root {
+    --hero-gap: 18px;
+  }
 }
 
 @media (min-width: 768px) {
   :root {
     --nav-h: 88px;
+    --hero-gap: 0px;
   }
 }
