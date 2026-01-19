@@ -113,6 +113,98 @@ body {
   box-shadow: 0 20px 40px rgba(16, 185, 129, 0.15);
 }
 
+.accent-card {
+  position: relative;
+}
+
+.accent-card--cyan {
+  border-color: rgba(6, 182, 212, 0.35);
+  background:
+    linear-gradient(135deg, rgba(6, 182, 212, 0.10) 0%, rgba(139, 92, 246, 0.07) 45%, rgba(15, 23, 42, 0) 70%),
+    var(--surface);
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.10), 0 24px 60px rgba(6, 182, 212, 0.10);
+}
+
+.accent-card--cyan:hover {
+  box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.18), 0 28px 70px rgba(6, 182, 212, 0.16);
+}
+
+
+.accent-card--emerald {
+  border-color: rgba(16, 185, 129, 0.35);
+  background:
+    linear-gradient(135deg, rgba(16, 185, 129, 0.10) 0%, rgba(139, 92, 246, 0.07) 45%, rgba(15, 23, 42, 0) 70%),
+    var(--surface);
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.10), 0 24px 60px rgba(16, 185, 129, 0.10);
+}
+
+.accent-card--emerald:hover {
+  box-shadow: 0 0 0 1px rgba(16, 185, 129, 0.18), 0 28px 70px rgba(16, 185, 129, 0.16);
+}
+.experience-project-title {
+  font-weight: 800;
+  letter-spacing: -0.02em;
+}
+
+.experience-project-title--cyan {
+  font-size: 1.75rem;
+  line-height: 1.15;
+  background: linear-gradient(135deg, #22d3ee 0%, #a78bfa 55%, #22d3ee 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+.experience-project-title--emerald {
+  font-size: 1.75rem;
+  line-height: 1.15;
+  background: linear-gradient(135deg, #34d399 0%, #a78bfa 55%, #34d399 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.project-badge {
+  font-size: 0.65rem;
+  line-height: 1;
+  font-weight: 900;
+  letter-spacing: 0.18em;
+  padding: 0.35rem 0.6rem;
+  border-radius: 9999px;
+  text-transform: uppercase;
+}
+
+.project-badge--cyan {
+  background: rgba(6, 182, 212, 0.18);
+  color: rgb(165 243 252);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+}
+
+.tech-pill {
+  padding: 0.38rem 0.7rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  line-height: 1;
+  border: 1px solid rgba(148, 163, 184, 0.22);
+  background: rgba(30, 41, 59, 0.75);
+  color: rgb(226 232 240);
+  font-family: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+.tech-pill--cyan {
+  background: rgba(6, 182, 212, 0.14);
+  border: 1px solid rgba(6, 182, 212, 0.35);
+  color: rgb(165 243 252);
+}
+
+
+.tech-pill--emerald {
+  background: rgba(16, 185, 129, 0.14);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: rgb(167 243 208);
+}
+
 .timeline-line {
   background: linear-gradient(180deg, var(--primary) 0%, #8b5cf6 100%);
 }
