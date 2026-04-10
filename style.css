@@ -11,6 +11,7 @@
 html {
   height: 100%;
   scrollbar-gutter: stable;
+  scroll-behavior: smooth;
 }
 
 body {
@@ -324,6 +325,11 @@ body {
 
 .hero-safe-top {
   padding-top: calc(var(--nav-h) + var(--hero-gap));
+}
+
+/* Ensure anchored sections appear below the fixed nav when scrolled to */
+#experience {
+  scroll-margin-top: calc(var(--nav-h) + 1rem);
 }
 
 @media (max-width: 640px) {
